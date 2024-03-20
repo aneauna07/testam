@@ -1,42 +1,48 @@
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-class LinkedList:
+class Stack:
     def __init__(self):
-        self.head = None
+        self.items = []
 
-    def append(self, value):
-        if not self.head:
-            self.head = Node(value)
+    def isEmpty(self):
+        return self.items == []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.isEmpty():
+            return self.items.pop()
         else:
-            current = self.head
-            while current.next:
-                current = current.next
-            current.next = Node(value)
+            return None
 
-    def find_max_value(self):
-        ###############################
-        ###                         ###
-        ###                         ###
-        ###                         ###
-        ###                         ###
-        ###                         ###
-        ###############################
+    def peek(self):
+        if not self.isEmpty():
+            return self.items[-1]
+        else:
+            return None
 
-def read_values_from_file(filename):
-    ll = LinkedList()
-    with open(filename, 'r') as file:
-        values_line = file.readline()
-        values = values_line.strip().split(' ')  
-        for value in values:
-            ll.append(int(value))
-    return ll
+def findInStack(stack, x):
+   
+    # Implementējiet funkciju, kas atgriež True, ja elements 'x' atrodas kaudzē, pretējā gadījumā False.
+    # Jūsu kods šeit.
+
+    return found
+
+def loadValuesFromFile(filename, stack):
+    try:
+        with open(filename, 'r') as file:
+            values = file.readline().split() 
+            for value in values:
+                stack.push(int(value))  
+    except FileNotFoundError:
+        print(f"Failu '{filename}' nevar atrast.")
 
 
-filename = 'list_values.txt'  # Pieņem, ka vērtības ir saglabātas šajā failā vienā rindā
-linked_list = read_values_from_file(filename)
-max_value = linked_list.find_max_value()
-print(max_value)
 
+myStack = Stack()
+filename = "values.txt"  
+loadValuesFromFile(filename, myStack)
+
+
+elementToFind = 1
+isElementFound = findInStack(myStack, elementToFind)
+print(isElementFound)
