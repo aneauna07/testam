@@ -1,3 +1,9 @@
+# Array - pop() dzēš pēdējo elem, index(x) x elementa indekss.
+# Tree - kreisās vērtības mazākas par labajām.
+# Stack - push jauns elem, pop izdzēš augšējo elem, peek skatās augšējo elem.
+# Queue - enqueue pievieno jaunu elem, dequeue noņem pirmo.
+# O(1), O(logn), O(n), O(n2). l=s
+
 #---1.uzdevums_1-Linked_List---------------------------------------------------
 class Node:
     def __init__(self, value):   #definēta klase Node, kas attēlo vienu elementu saistītā sarakstā. 
